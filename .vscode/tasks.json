@@ -1,0 +1,107 @@
+{
+        "version": "2.0.0",
+        "options": {
+                "env": {
+                        "ZEPHYR_BASE": "${workspaceRoot}/../zephyr",
+                        "ZEPHYR_BASE_BUILD": "${ZEPHYR_BASE}/build",
+                        // "ZEPHYR_TOOLCHAIN_VARIANT": "gnuarmemb",
+                        // "GNUARMEMB_TOOLCHAIN_PATH": "/usr/local/bin",
+                        "BOARD_NAME": "nucleo_h745zi_q_m7",
+                        "PRJ_NAME": "samples/hello_world"
+                },
+                "cwd": "${workspaceRoot}/../zephyr"
+        },
+        "tasks": [
+                {
+                        "label": "West Build Zephyr",
+                        "type": "shell",
+                        "group": "build",
+                        "command": "west",
+                        "args": [
+                                "build",
+                                "-p",
+                                "auto",
+                                "-b",
+                                "${BOARD_NAME}",
+                                "${PRJ_NAME}"
+                        ],
+                        "dependsOn": [
+                                "Clean Build",
+                                "Set Zephyr Source"
+                         ],
+                        "problemMatcher": [ "$gcc" ]
+                },
+                {
+                        "label": "Set Zephyr Source",
+                        "type": "shell",
+                        "group": "build",
+                        "command": "source",
+                        "args": [
+                                "${ZEPHYR_BASE}/zephyr-env.sh"
+                        ],
+                        "dependsOn": [],
+                        "problemMatcher": []
+                },
+                {
+                        "label": "Clean Build",
+                        "type": "shell",
+                        "group": "build",
+                        "command": "rm",
+                        "args": [
+                                "-rf",
+                                "${ZEPHYR_BASE}/build"
+                        ],
+                        "dependsOn": [],
+                        "problemMatcher": []
+                },
+                {
+                        "label": "Stylcheck (commited only)",
+                        "type": "shell",
+                        "group": "test",
+                        "command": "",
+                        "args": [],
+                        "dependsOn": [
+                                "GitLint (commited only)",
+                                "Checkpatch (commited only)"
+                        ],
+                        "problemMatcher": []
+                },
+                {
+                        "label": "GitLint (commited only)",
+                        "type": "shell",
+                        "group": "test",
+                        "command": "gitlint",
+                        "args": [],
+                        "dependsOn": [],
+                        "problemMatcher": []
+                },
+                {
+                        "label": "Checkpatch (commited only)",
+                        "type": "shell",
+                        "group": "test",
+                        "command": "${ZEPHYR_BASE}/scripts/checkpatch.pl",
+                        "args": [
+                                "-g",
+                                "HEAD-10"
+                        ],
+                        "dependsOn": [],
+                        "problemMatcher": []
+                },
+                {
+                        "label": "Generate Eclipse CDT4",
+                        "type": "shell",
+                        "group": "build",
+                        "command": "cmake",
+                        "args": [
+                                "-G\"Eclipse CDT4 - Ninja\"",
+                                "-DBOARD=nucleo_h745zi_q",
+                                "${ZEPHYR_BASE}/${PRJ_NAME}"
+                        ],
+                        "options": {
+                                "cwd": "${workspaceRoot}/../zephyr/build"
+                        },
+                        "dependsOn": [ "West Build Zephyr" ],
+                        "problemMatcher": []
+                }
+        ]
+}

@@ -1,0 +1,26 @@
+{
+        "version": "2.0.0",
+        "configurations": [
+        {
+            "name": "Cortex-Debug Zephyr OpenOCD VSCode",
+            "cwd": "${workspaceRoot}/../",
+            "executable": "zephyr/build/zephyr/zephyr.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "openocd",
+            "interface": "swd",
+            "device": "stm32h745xx",
+            "targetId": "stm32h745",
+            "boardId": "",
+            "openocdPath": "/usr/local/bin",
+            "armToolchainPath": "${env:HOME}/zephyr-sdk-0.11.4/arm-zephyr-eabi/bin",
+            "gdbpath": "${env:HOME}/zephyr-sdk-0.11.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
+            "gdb_port": "5000",
+            "svdFile": "${workspaceRoot}/stm32_svd/STM32H745_CM7.svd",
+            "showDevDebugOutput": true,
+            "configFiles": [
+                        "zephyr/boards/arm/nucleo_h745zi_q/support/openocd.cfg"
+                ]
+        }
+    ]
+}
