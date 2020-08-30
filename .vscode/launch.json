@@ -17,7 +17,7 @@
             "gdbpath": "${env:HOME}/zephyr-sdk-0.11.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
             "gdb_port": "5000",
             "svdFile": "${workspaceRoot}/stm32_svd/STM32H745_CM7.svd",
-            "showDevDebugOutput": true,
+            "showDevDebugOutput": false,
             "configFiles": [
                         "zephyr/boards/arm/nucleo_h745zi_q/support/openocd.cfg"
                 ]
