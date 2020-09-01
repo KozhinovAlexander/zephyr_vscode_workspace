@@ -16,7 +16,8 @@
 
 		"files.associations": {
 			"*.c": "c",
-			"cmath": "c"
+			"cmath": "c",
+			"future": "cpp"
 		},
 
 		// The number of spaces a tab is equal to. This setting is overridden
