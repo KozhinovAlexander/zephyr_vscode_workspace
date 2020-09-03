@@ -6,8 +6,9 @@
                         "ZEPHYR_BASE_BUILD": "${ZEPHYR_BASE}/build",
                         // "ZEPHYR_TOOLCHAIN_VARIANT": "gnuarmemb",
                         // "GNUARMEMB_TOOLCHAIN_PATH": "/usr/local/bin",
-                        "BOARD_NAME": "nucleo_h745zi_q_m7",
-                        "PRJ_NAME": "samples/hello_world"
+			"BOARD": "nucleo_h745zi_q",
+			"CPU": "_m4",
+			"PRJ_NAME": "samples/hello_world"
                 },
                 "cwd": "${workspaceRoot}/../zephyr"
         },
@@ -22,8 +23,8 @@
                                 "-p",
                                 "auto",
                                 "-b",
-                                "${BOARD_NAME}",
-                                "${PRJ_NAME}"
+                                "${BOARD}${CPU}",
+				"${PRJ_NAME}"
                         ],
                         "dependsOn": [
                                 "Clean Build",
@@ -94,7 +95,7 @@
                         "command": "cmake",
                         "args": [
                                 "-G\"Eclipse CDT4 - Ninja\"",
-                                "-DBOARD=nucleo_h745zi_q",
+                                "-DBOARD=${BOARD}${CPU}",
                                 "${ZEPHYR_BASE}/${PRJ_NAME}"
                         ],
                         "options": {
