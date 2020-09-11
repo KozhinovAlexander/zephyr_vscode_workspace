@@ -7,8 +7,8 @@
                         // "ZEPHYR_TOOLCHAIN_VARIANT": "gnuarmemb",
                         // "GNUARMEMB_TOOLCHAIN_PATH": "/usr/local/bin",
 			"BOARD": "nucleo_h745zi_q",
-			"CPU": "_m4",
-			"PRJ_NAME": "samples/hello_world"
+			"CPU": "_m7",
+			"PRJ_NAME": "samples/net/sockets/civetweb_websocket_server"
                 },
                 "cwd": "${workspaceRoot}/../zephyr"
         },
@@ -27,7 +27,7 @@
 				"${PRJ_NAME}"
                         ],
                         "dependsOn": [
-                                "Clean Build",
+                                // "Clean Build",
                                 "Set Zephyr Source"
                          ],
                         "problemMatcher": [ "$gcc" ]
