@@ -83,7 +83,7 @@
                         "command": "${ZEPHYR_BASE}/scripts/checkpatch.pl",
                         "args": [
                                 "-g",
-                                "HEAD-10"
+                                "HEAD-5"
                         ],
                         "dependsOn": [],
                         "problemMatcher": []
