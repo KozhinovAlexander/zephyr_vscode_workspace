@@ -56,7 +56,7 @@
                         "problemMatcher": []
                 },
                 {
-                        "label": "Stylcheck (commited only)",
+                        "label": "Style Check (commited only)",
                         "type": "shell",
                         "group": "test",
                         "command": "",
