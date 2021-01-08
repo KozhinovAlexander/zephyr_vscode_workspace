@@ -8,7 +8,7 @@
 			// "GNUARMEMB_TOOLCHAIN_PATH": "/usr/local/bin",
 			"BOARD": "nucleo_h745zi_q",
 			"CPU": "_m7",
-			"PRJ_NAME": "samples/net/sockets/civetweb"
+			"PRJ_NAME": "samples/hello_world"
 		},
 		"cwd": "${workspaceRoot}/../zephyr"
 	},

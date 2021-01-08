@@ -10,8 +10,6 @@
 	],
 
 	"settings": {
-		// "restructuredtext.confPath": "${workspaceFolder}/../zephyr/doc",
-		"python.pythonPath": "/usr/bin/python3",
 		"cmake.configureOnOpen": false,
 
 		"files.associations": {
@@ -21,7 +19,8 @@
 			"array": "c",
 			"string": "c",
 			"string_view": "c",
-			"*.inc": "c"
+			"*.inc": "c",
+			"util.h": "c"
 		},
 
 		// The number of spaces a tab is equal to. This setting is overridden
