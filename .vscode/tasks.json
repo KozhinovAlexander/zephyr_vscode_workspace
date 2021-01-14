@@ -6,9 +6,10 @@
 			"ZEPHYR_BASE_BUILD": "${ZEPHYR_BASE}/build",
 			// "ZEPHYR_TOOLCHAIN_VARIANT": "gnuarmemb",
 			// "GNUARMEMB_TOOLCHAIN_PATH": "/usr/local/bin",
-			"BOARD": "nucleo_h745zi_q",
-			"CPU": "_m7",
-			"PRJ_NAME": "samples/hello_world"
+			"BOARD": "nucleo_h723zg",
+			"CPU": "",
+			"PRJ_NAME": "samples/subsys/canbus/canopen",
+			"CONFIG": ""
 		},
 		"cwd": "${workspaceRoot}/../zephyr"
 	},
@@ -24,7 +25,8 @@
 				"auto",
 				"-b",
 				"${BOARD}${CPU}",
-				"${PRJ_NAME}"
+				"${PRJ_NAME}",
+				"${CONFIG}"
 			],
 			"dependsOn": [
 				// "Clean Build",

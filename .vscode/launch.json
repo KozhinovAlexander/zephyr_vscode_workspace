@@ -10,17 +10,17 @@
             "type": "cortex-debug",
             "servertype": "openocd",
             "interface": "swd",
-            "device": "stm32h745Xi",
-            "targetId": "nucleo_h745",
+            "device": "stm32h723Zi",
+            "targetId": "nucleo_h723",
             "boardId": "1",
             "openocdPath": "/usr/local/bin",
             "armToolchainPath": "${env:HOME}/zephyr-sdk/arm-zephyr-eabi/bin",
             "gdbpath": "${env:HOME}/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb",
             // "gdb_port": "6000",
-            "svdFile": "${workspaceRoot}/stm32_svd/STM32H745_CM7.svd",
+            "svdFile": "${workspaceRoot}/stm32_svd/STM32H723.svd",
             "showDevDebugOutput": false,
             "configFiles": [
-                        "zephyr/boards/arm/nucleo_h745zi_q/support/openocd.cfg"
+                        "zephyr/boards/arm/nucleo_h723zg/support/openocd.cfg"
                 ]
         }
     ]
