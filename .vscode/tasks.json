@@ -6,11 +6,11 @@
 			"ZEPHYR_BASE_BUILD": "${ZEPHYR_BASE}/build",
 			// "ZEPHYR_TOOLCHAIN_VARIANT": "gnuarmemb",
 			// "GNUARMEMB_TOOLCHAIN_PATH": "/usr/local/bin",
-			"BOARD": "nucleo_f303re",
+			"BOARD": "nucleo_h723zg",
 			"CPU": "",
-			"PRJ_NAME": "samples/drivers/can2uart",
+			"PRJ_NAME": "samples/drivers/can",
 			"CONFIG": "",  // -DOVERLAY_CONFIG=<path_relative_to_sample> use ; for multiple files
-			"DTC_OVERLAY": "-DDTC_OVERLAY_FILE=boards/nucleo_f303re.overlay"  // -DDTC_OVERLAY_FILE=<path_relative_to_sample> use ; for multiple files
+			"DTC_OVERLAY": ""  // "-DDTC_OVERLAY_FILE=boards/nucleo_f303re.overlay"  // -DDTC_OVERLAY_FILE=<path_relative_to_sample> use ; for multiple files
 		},
 		"cwd": "${workspaceRoot}/../zephyr"
 	},

@@ -21,7 +21,8 @@
 			"string_view": "c",
 			"*.inc": "c",
 			"util.h": "c",
-			"thread": "c"
+			"thread": "c",
+			"typeinfo": "c"
 		},
 
 		// The number of spaces a tab is equal to. This setting is overridden
