@@ -6,6 +6,9 @@
 		{
 			"path": "../",
 			"name": "zephyrproject"
+		},
+		{
+			"path": "../../wrk/interface-board"
 		}
 	],
 

@@ -3,16 +3,16 @@
 	"options": {
 		"env": {
 			"ZEPHYR_BASE": "${workspaceRoot}/../zephyr",
-			"ZEPHYR_BASE_BUILD": "${ZEPHYR_BASE}/build",
+			"PRJ_NAME": "${workspaceRoot}/../../wrk/interface-board/app",  // "samples/drivers/can",
+			"BUILD_DIR": "${workspaceRoot}/../../wrk/interface-board/build",
 			// "ZEPHYR_TOOLCHAIN_VARIANT": "gnuarmemb",
 			// "GNUARMEMB_TOOLCHAIN_PATH": "/usr/local/bin",
-			"BOARD": "nucleo_h723zg",
+			"BOARD": "nucleo_f303re",
 			"CPU": "",
-			"PRJ_NAME": "samples/drivers/can",
 			"CONFIG": "",  // -DOVERLAY_CONFIG=<path_relative_to_sample> use ; for multiple files
 			"DTC_OVERLAY": ""  // "-DDTC_OVERLAY_FILE=boards/nucleo_f303re.overlay"  // -DDTC_OVERLAY_FILE=<path_relative_to_sample> use ; for multiple files
 		},
-		"cwd": "${workspaceRoot}/../zephyr"
+		"cwd": "${workspaceRoot}/../zephyr" 
 	},
 	"tasks": [
 		{
@@ -24,6 +24,8 @@
 				"build",
 				"-p",
 				"auto",
+				"-d",
+				"${BUILD_DIR}",
 				"-b",
 				"${BOARD}${CPU}",
 				"${PRJ_NAME}",
@@ -54,8 +56,9 @@
 			"command": "rm",
 			"args": [
 				"-rf",
-				"${ZEPHYR_BASE}/build"
+				"${BUILD_DIR}"
 			],
+			"echoCommand": true,
 			"dependsOn": [],
 			"problemMatcher": []
 		},
