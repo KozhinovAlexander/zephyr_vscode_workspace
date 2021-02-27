@@ -4,21 +4,21 @@
 
         {
             "name": "Cortex-Debug Zephyr VSCode",
-            "cwd": "${workspaceRoot}/../",
-            "executable": "zephyr/build/zephyr/zephyr.elf",
+            "cwd": "${workspaceFolder}/../",
+            "executable": "${workspaceFolder:MyAppDir}/build/zephyr/zephyr.elf",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "openocd",
             "interface": "swd",
-            "device": "stm32f303re",
-            "targetId": "nucleo_f303re",
+            "device": "stm32f446re",
+            "targetId": "nucleo_f446re",
             "boardId": "1",
             "armToolchainPath": "${env:HOME}/zephyr-sdk/arm-zephyr-eabi/bin",
             // "gdb_port": "6000",
-            "svdFile": "${workspaceRoot}/stm32_svd/STM32F303xE.svd",
+            "svdFile": "${workspaceFolder}/stm32_svd/STM32F446x.svd",
             "showDevDebugOutput": false,
             "configFiles": [
-                        "zephyr/boards/arm/nucleo_f303re/support/openocd.cfg"
+                        "${workspaceFolder:zephyrproject}/zephyr/boards/arm/nucleo_f446re/support/openocd.cfg"
                 ]
         }
     ]

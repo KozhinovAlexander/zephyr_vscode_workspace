@@ -8,7 +8,8 @@
 			"name": "zephyrproject"
 		},
 		{
-			"path": "../../wrk/interface-board"
+			"name": "MyAppDir",
+			"path": "../../Documents/development/macseq_interface_board/interface-board"
 		}
 	],
 
@@ -46,7 +47,9 @@
 
 		"files.trimFinalNewlines": true,
 		"editor.formatOnSave": false,
-		"editor.codeActionsOnSave": null,
+		"editor.codeActionsOnSave": [],
+
+		"editor.renderWhitespace": "all",
 
 		"files.watcherExclude": {
 			"**/.git/objects/**": true,
@@ -100,6 +103,7 @@
 			"**/dist/**": true,
 			"**/log/**": true,
 			"**/.west/**": true
-		}
+		},
+		"editor.renderControlCharacters": false
 	}
 }
