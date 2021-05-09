@@ -10,15 +10,15 @@
             "type": "cortex-debug",
             "servertype": "openocd",
             "interface": "swd",
-            "device": "stm32f446re",
-            "targetId": "nucleo_f446re",
+            "device": "stm32f446ze",
+            "targetId": "nucleo_f446ze",
             "boardId": "1",
             "armToolchainPath": "${env:HOME}/zephyr-sdk/arm-zephyr-eabi/bin",
             // "gdb_port": "6000",
             "svdFile": "${workspaceFolder}/stm32_svd/STM32F446x.svd",
             "showDevDebugOutput": false,
             "configFiles": [
-                        "${workspaceFolder:zephyrproject}/zephyr/boards/arm/nucleo_f446re/support/openocd.cfg"
+                        "${workspaceFolder:MyAppDir}/app/boards/arm/nucleo_f446ze/support/openocd.cfg"
                 ]
         }
     ]
