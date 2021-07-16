@@ -1,19 +1,5 @@
 {
 	"version": "2.0.0",
-	"options": {
-		"env": {
-			"ZEPHYR_BASE": "${workspaceFolder}/../zephyr",
-			"PRJ_NAME": "${workspaceFolder:MyAppDir}/app",
-			"BUILD_DIR": "${workspaceFolder:MyAppDir}/build",
-			// "ZEPHYR_TOOLCHAIN_VARIANT": "gnuarmemb",
-			// "GNUARMEMB_TOOLCHAIN_PATH": "/usr/local/bin",
-			"BOARD": "nucleo_f446ze",
-			"CPU": "",
-			"CONFIG": "",  // -DOVERLAY_CONFIG=<path_relative_to_sample> use ; for multiple files
-			"DTC_OVERLAY": ""  // "-DDTC_OVERLAY_FILE=boards/nucleo_f303re.overlay"  // -DDTC_OVERLAY_FILE=<path_relative_to_sample> use ; for multiple files
-		},
-		"cwd": "${workspaceFolder:zephyrproject}/zephyr"
-	},
 	"tasks": [
 		{
 			"label": "West Build Zephyr",
@@ -25,12 +11,12 @@
 				"-p",
 				"auto",
 				"-d",
-				"${BUILD_DIR}",
+				"${config:prj.build_dir}",
 				"-b",
-				"${BOARD}${CPU}",
-				"${PRJ_NAME}",
-				"${CONFIG}",
-				"${DTC_OVERLAY}"
+				"${config:prj.board}${config:prj.soc_cpu}",
+				"${config:prj.name}",
+				"${config:prj.zephyr_config}",
+				"${config:prj.zephyr_dtc_overlay}"
 			],
 			"dependsOn": [
 				// "Clean Build",
@@ -44,7 +30,7 @@
 			"group": "build",
 			"command": "source",
 			"args": [
-				"${ZEPHYR_BASE}/zephyr-env.sh"
+				"${config:prj.zephyr_base}/zephyr-env.sh"
 			],
 			"dependsOn": [],
 			"problemMatcher": []
@@ -56,9 +42,8 @@
 			"command": "rm",
 			"args": [
 				"-rf",
-				"${BUILD_DIR}"
+				"${config:prj.build_dir}"
 			],
-			"echoCommand": true,
 			"dependsOn": [],
 			"problemMatcher": []
 		},
@@ -87,7 +72,7 @@
 			"label": "Checkpatch (commited only)",
 			"type": "shell",
 			"group": "test",
-			"command": "${ZEPHYR_BASE}/scripts/checkpatch.pl",
+			"command": "${config:prj.zephyr_base}/scripts/checkpatch.pl",
 			"args": [
 				"-g",
 				"HEAD-5"
@@ -102,11 +87,11 @@
 			"command": "cmake",
 			"args": [
 				"-G\"Eclipse CDT4 - Ninja\"",
-				"-DBOARD=${BOARD}${CPU}",
-				"${ZEPHYR_BASE}/${PRJ_NAME}"
+				"-DBOARD=${config:prj.board}${config:prj.soc_cpu}}",
+				"${workspaceFolder:AppUnderDev}"
 			],
 			"options": {
-				"cwd": "${workspaceFolder}/../zephyr/build"
+				"cwd": "${config:prj.build_dir}"
 			},
 			"dependsOn": [ "West Build Zephyr" ],
 			"problemMatcher": []

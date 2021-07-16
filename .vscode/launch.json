@@ -1,24 +1,26 @@
 {
 	"version": "2.0.0",
         "configurations": [
-
         {
             "name": "Cortex-Debug Zephyr VSCode",
-            "cwd": "${workspaceFolder}/../",
-            "executable": "${workspaceFolder:MyAppDir}/build/zephyr/zephyr.elf",
+            "cwd": "${workspaceFolder:AppUnderDev}",
+            "executable": "${workspaceFolder:AppUnderDev}/build/zephyr/zephyr.elf",
             "request": "launch",
             "type": "cortex-debug",
+            "openocdPath": "${which openocd}/openocd",
             "servertype": "openocd",
             "interface": "swd",
-            "device": "stm32f446ze",
-            "targetId": "nucleo_f446ze",
+            "device": "${config:prj.soc}",
+            "targetId": "${config:prj.board}",
             "boardId": "1",
-            "armToolchainPath": "${env:HOME}/zephyr-sdk/arm-zephyr-eabi/bin",
+            "flattenAnonymous": true,
+            "armToolchainPrefix": "arm-none-eabi",
+            "armToolchainPath": "${env:GNUARMEMB_TOOLCHAIN_PATH}/bin",
             // "gdb_port": "6000",
-            "svdFile": "${workspaceFolder}/stm32_svd/STM32F446x.svd",
-            "showDevDebugOutput": false,
+            "svdFile": "${config:prj.socSVD}",
+            "showDevDebugOutput": "none",
             "configFiles": [
-                        "${workspaceFolder:MyAppDir}/app/boards/arm/nucleo_f446ze/support/openocd.cfg"
+                        "${config:prj.launchCfgDir}/boards/arm/${config:prj.board}/support/openocd.cfg"
                 ]
         }
     ]
