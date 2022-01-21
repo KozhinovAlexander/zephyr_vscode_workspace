@@ -2,7 +2,7 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "West Build Zephyr",
+			"label": "West Build App",
 			"type": "shell",
 			"group": "build",
 			"command": "west",
@@ -25,6 +25,27 @@
 			"problemMatcher": [ "$gcc" ]
 		},
 		{
+			"label": "West Build Bootloader",
+			"type": "shell",
+			"group": "build",
+			"command": "west",
+			"args": [
+				"build",
+				"-p",
+				"auto",
+				"-d",
+				"${BOOTLOADER_BUILD_DIR}",
+				"-b",
+				"${BOARD}${CPU}",
+				"${BOOTLOADER_PRJ_NAME}"
+			],
+			"dependsOn": [
+				// "Clean Build",
+				"Set Zephyr Source"
+			 ],
+			"problemMatcher": [ "$gcc" ]
+		},
+		{
 			"label": "Set Zephyr Source",
 			"type": "shell",
 			"group": "build",
@@ -36,13 +57,25 @@
 			"problemMatcher": []
 		},
 		{
-			"label": "Clean Build",
+			"label": "Clean Build App",
 			"type": "shell",
 			"group": "build",
 			"command": "rm",
 			"args": [
 				"-rf",
 				"${config:prj.build_dir}"
+			],
+			"dependsOn": [],
+			"problemMatcher": []
+		},
+		{
+			"label": "Clean Build Bootloader",
+			"type": "shell",
+			"group": "build",
+			"command": "rm",
+			"args": [
+				"-rf",
+				"${BOOTLOADER_BUILD_DIR}"
 			],
 			"dependsOn": [],
 			"problemMatcher": []

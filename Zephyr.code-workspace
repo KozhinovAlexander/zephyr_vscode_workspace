@@ -118,6 +118,7 @@
 			"**/log/**": true,
 			"**/.west/**": true
 		},
-		"editor.renderControlCharacters": false
+		"editor.renderControlCharacters": false,
+		"cortex-debug.variableUseNaturalFormat": false
 	}
 }
