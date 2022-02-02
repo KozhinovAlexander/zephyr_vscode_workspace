@@ -11,6 +11,11 @@
 			"name": "AppUnderDev",
 			"path": "../zephyr/samples/hello_world"
 		}
+		,
+		{
+			"name": "BootloaderUnderDev",
+			"path": "../bootloader/mcuboot/samples/zephyr/hello-world"
+		}
 	],
 
 	"settings": {
@@ -19,7 +24,9 @@
 			"board": "nucleo_f446ze",
 			"socSVD": "${workspaceFolder}/stm32_svd/STM32F446x.svd",
 			"launchCfgDir": "${workspaceFolder:zephyrproject}/zephyr",
-			"build_dir": "${workspaceFolder:AppUnderDev}/build",
+			"app_build_dir": "${workspaceFolder:AppUnderDev}/build",
+			"bootloader_build_dir": "${workspaceFolder:BootloaderUnderDev}/build",
+			"bootloader_name": "${workspaceFolder:BootloaderUnderDev}",
 			"name": "${workspaceFolder:AppUnderDev}",
 			"zephyr_base": "${workspaceFolder:zephyrproject}/zephyr",
 			"soc_cpu": "",  // must be used if multi core system
