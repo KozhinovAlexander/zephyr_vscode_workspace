@@ -11,7 +11,7 @@
 				"-p",
 				"auto",
 				"-d",
-				"${config:prj.build_dir}",
+				"${config:prj.app_build_dir}",
 				"-b",
 				"${config:prj.board}${config:prj.soc_cpu}",
 				"${config:prj.name}",
@@ -34,10 +34,10 @@
 				"-p",
 				"auto",
 				"-d",
-				"${BOOTLOADER_BUILD_DIR}",
+				"${config:prj.bootloader_build_dir}",
 				"-b",
-				"${BOARD}${CPU}",
-				"${BOOTLOADER_PRJ_NAME}"
+				"${config:prj.board}${config:prj.soc_cpu}",
+				"${config:prj.bootloader_name}",
 			],
 			"dependsOn": [
 				// "Clean Build",
@@ -63,7 +63,7 @@
 			"command": "rm",
 			"args": [
 				"-rf",
-				"${config:prj.build_dir}"
+				"${config:prj.app_build_dir}"
 			],
 			"dependsOn": [],
 			"problemMatcher": []
@@ -75,7 +75,7 @@
 			"command": "rm",
 			"args": [
 				"-rf",
-				"${BOOTLOADER_BUILD_DIR}"
+				"${config:prj.bootloader_build_dir}",
 			],
 			"dependsOn": [],
 			"problemMatcher": []
@@ -124,7 +124,7 @@
 				"${workspaceFolder:AppUnderDev}"
 			],
 			"options": {
-				"cwd": "${config:prj.build_dir}"
+				"cwd": "${config:prj.app_build_dir}"
 			},
 			"dependsOn": [ "West Build Zephyr" ],
 			"problemMatcher": []
