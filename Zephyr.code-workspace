@@ -24,8 +24,9 @@
 			"soc": "stm32f446ze",
 			"board": "nucleo_f446ze",
 			"board_root": "${workspaceFolder:zephyrproject}",
+			"board_path": "${config:bsp.board_root}/boards/arm/${config:bsp.board}",
 			"svd": "${workspaceFolder}/stm32_svd/STM32F446x.svd",
-			"debug_config": "${config:bsp.board_root}/boards/arm/${config:bsp.board}/support/openocd.cfg"
+			"debug_config": "${config:bsp.board_path}/support/openocd.cfg"
 		},
 
 		// App settings:
@@ -33,7 +34,8 @@
 			"name": "${workspaceFolder:AppUnderDev}",
 			"build_dir": "${workspaceFolder:AppUnderDev}/build",
 			"zephyr_config": "",  // -DOVERLAY_CONFIG=<path_relative_to_sample> use ; for multiple files
-			"zephyr_dtc_overlay": ""  // "-DDTC_OVERLAY_FILE=boards/nucleo_f303re.overlay"  // -DDTC_OVERLAY_FILE=<path_relative_to_sample> use ; for multiple files
+			"zephyr_dtc_overlay": "",  // "-DDTC_OVERLAY_FILE=boards/nucleo_f303re.overlay"  // -DDTC_OVERLAY_FILE=<path_relative_to_sample> use ; for multiple files
+			"compile_args": ""
 		},
 
 		// Bootloader app settings:
@@ -41,7 +43,8 @@
 			"name": "${workspaceFolder:BootloaderUnderDev}",
 			"build_dir": "${workspaceFolder:BootloaderUnderDev}/build",
 			"zephyr_config": "",  // -DOVERLAY_CONFIG=<path_relative_to_sample> use ; for multiple files
-			"zephyr_dtc_overlay": ""  // "-DDTC_OVERLAY_FILE=boards/nucleo_f303re.overlay"  // -DDTC_OVERLAY_FILE=<path_relative_to_sample> use ; for multiple files
+			"zephyr_dtc_overlay": "",  // "-DDTC_OVERLAY_FILE=boards/nucleo_f303re.overlay"  // -DDTC_OVERLAY_FILE=<path_relative_to_sample> use ; for multiple files
+			"compile_args": ""
 		},
 		
 		"cmake.configureOnOpen": false,

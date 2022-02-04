@@ -16,7 +16,8 @@
 				"${config:bsp.board}${config:bsp.cpu}",
 				"${config:app.name}",
 				"${config:app.zephyr_config}",
-				"${config:app.zephyr_dtc_overlay}"
+				"${config:app.zephyr_dtc_overlay}",
+				"${config:app_boot.compile_args}"
 			],
 			"dependsOn": [
 				// "Clean Build",
@@ -39,7 +40,8 @@
 				"${config:bsp.board}${config:bsp.cpu}",
 				"${config:app_boot.name}",
 				"${config:app_boot.zephyr_config}",
-				"${config:app_boot.zephyr_dtc_overlay}"
+				"${config:app_boot.zephyr_dtc_overlay}",
+				"${config:app_boot.compile_args}"
 			],
 			"dependsOn": [
 				// "Clean Build",
