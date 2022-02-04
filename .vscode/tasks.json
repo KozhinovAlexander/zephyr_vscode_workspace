@@ -11,12 +11,12 @@
 				"-p",
 				"auto",
 				"-d",
-				"${config:prj.app_build_dir}",
+				"${config:app.build_dir}",
 				"-b",
-				"${config:prj.board}${config:prj.soc_cpu}",
-				"${config:prj.name}",
-				"${config:prj.zephyr_config}",
-				"${config:prj.zephyr_dtc_overlay}"
+				"${config:bsp.board}${config:bsp.cpu}",
+				"${config:app.name}",
+				"${config:app.zephyr_config}",
+				"${config:app.zephyr_dtc_overlay}"
 			],
 			"dependsOn": [
 				// "Clean Build",
@@ -34,10 +34,12 @@
 				"-p",
 				"auto",
 				"-d",
-				"${config:prj.bootloader_build_dir}",
+				"${config:app_boot.build_dir}",
 				"-b",
-				"${config:prj.board}${config:prj.soc_cpu}",
-				"${config:prj.bootloader_name}",
+				"${config:bsp.board}${config:bsp.cpu}",
+				"${config:app_boot.name}",
+				"${config:app_boot.zephyr_config}",
+				"${config:app_boot.zephyr_dtc_overlay}"
 			],
 			"dependsOn": [
 				// "Clean Build",
@@ -51,7 +53,7 @@
 			"group": "build",
 			"command": "source",
 			"args": [
-				"${config:prj.zephyr_base}/zephyr-env.sh"
+				"${workspaceFolder:zephyrproject}/zephyr/zephyr-env.sh"
 			],
 			"dependsOn": [],
 			"problemMatcher": []
@@ -63,7 +65,7 @@
 			"command": "rm",
 			"args": [
 				"-rf",
-				"${config:prj.app_build_dir}"
+				"${config:app.build_dir}"
 			],
 			"dependsOn": [],
 			"problemMatcher": []
@@ -75,7 +77,7 @@
 			"command": "rm",
 			"args": [
 				"-rf",
-				"${config:prj.bootloader_build_dir}",
+				"${config:app_boot.build_dir}"
 			],
 			"dependsOn": [],
 			"problemMatcher": []
@@ -105,28 +107,12 @@
 			"label": "Checkpatch (commited only)",
 			"type": "shell",
 			"group": "test",
-			"command": "${config:prj.zephyr_base}/scripts/checkpatch.pl",
+			"command": "${workspaceFolder:zephyrproject}/zephyr/scripts/checkpatch.pl",
 			"args": [
 				"-g",
 				"HEAD-5"
 			],
 			"dependsOn": [],
-			"problemMatcher": []
-		},
-		{
-			"label": "Generate Eclipse CDT4",
-			"type": "shell",
-			"group": "build",
-			"command": "cmake",
-			"args": [
-				"-G\"Eclipse CDT4 - Ninja\"",
-				"-DBOARD=${config:prj.board}${config:prj.soc_cpu}}",
-				"${workspaceFolder:AppUnderDev}"
-			],
-			"options": {
-				"cwd": "${config:prj.app_build_dir}"
-			},
-			"dependsOn": [ "West Build Zephyr" ],
 			"problemMatcher": []
 		}
 	]
