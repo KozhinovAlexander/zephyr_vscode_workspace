@@ -57,6 +57,35 @@
 			"args": [
 				"${workspaceFolder:zephyrproject}/zephyr/zephyr-env.sh"
 			],
+			"dependsOn": [
+				"Set West Source",
+				"Set West Source Prefer"
+			],
+			"problemMatcher": []
+		},
+		{
+			"label": "Set West Source",
+			"type": "shell",
+			"group": "build",
+			"command": "west",
+			"args": [
+				"config",
+				"zephyr.base",
+				"${workspaceFolder:zephyrproject}/zephyr"
+			],
+			"dependsOn": [],
+			"problemMatcher": []
+		},
+		{
+			"label": "Set West Source Prefer",
+			"type": "shell",
+			"group": "build",
+			"command": "west",
+			"args": [
+				"config",
+				"zephyr.base-prefer",
+				"zephyr.base-prefer"
+			],
 			"dependsOn": [],
 			"problemMatcher": []
 		},
