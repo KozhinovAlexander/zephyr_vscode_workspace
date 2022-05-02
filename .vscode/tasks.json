@@ -58,8 +58,8 @@
 				"${workspaceFolder:zephyrproject}/zephyr/zephyr-env.sh"
 			],
 			"dependsOn": [
+				"Set West Source Prefer",
 				"Set West Source",
-				"Set West Source Prefer"
 			],
 			"problemMatcher": []
 		},
@@ -84,7 +84,7 @@
 			"args": [
 				"config",
 				"zephyr.base-prefer",
-				"zephyr.base-prefer"
+				"configfile"
 			],
 			"dependsOn": [],
 			"problemMatcher": []
