@@ -46,20 +46,18 @@
 			"zephyr_dtc_overlay": "",  // "-DDTC_OVERLAY_FILE=boards/nucleo_f303re.overlay"  // -DDTC_OVERLAY_FILE=<path_relative_to_sample> use ; for multiple files
 			"compile_args": ""
 		},
+
+		"C_Cpp.default.compilerPath": "${env:GNUARMEMB_TOOLCHAIN_PATH}/bin/arm-zephyr-eabi-gcc",
+		"C_Cpp.default.compileCommands": "${config:app.build_dir}/compile_commands.json",
+		"C_Cpp.default.includePath": [
+			"${workspaceFolder:zephyrproject}/zephyr",
+			"${env:GNUARMEMB_TOOLCHAIN_PATH}/arm-zephyr-eabi/include",
+			"${env:GNUARMEMB_TOOLCHAIN_PATH}/arm-zephyr-eabi/sys-include"
+		],
 		
 		"cmake.configureOnOpen": false,
 
 		"files.associations": {
-			"*.c": "c",
-			"cmath": "c",
-			"future": "cpp",
-			"array": "c",
-			"string": "c",
-			"string_view": "c",
-			"*.inc": "c",
-			"util.h": "c",
-			"thread": "c",
-			"typeinfo": "c"
 		},
 
 		// The number of spaces a tab is equal to. This setting is overridden
