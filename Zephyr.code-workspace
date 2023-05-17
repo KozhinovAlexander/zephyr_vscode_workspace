@@ -18,6 +18,7 @@
 	],
 
 	"settings": {
+		"west": "${env:HOME}/.python_default_venv/bin/west",
 		// Board support package settings:
 		"bsp": {
 			"cpu": "",  // must be used if multi core system (put _m4 or _m7 here for example)
