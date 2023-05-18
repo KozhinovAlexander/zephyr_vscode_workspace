@@ -3,9 +3,9 @@
 	"tasks": [
 		{
 			"label": "West Build App",
-			"type": "shell",
+			"type": "process",
 			"group": "build",
-			"command": "west",
+			"command": "${config:west}",
 			"args": [
 				"build",
 				"-p",
@@ -21,15 +21,14 @@
 			],
 			"dependsOn": [
 				// "Clean Build",
-				"Set Zephyr Source"
 			 ],
 			"problemMatcher": [ "$gcc" ]
 		},
 		{
 			"label": "West Build Bootloader",
-			"type": "shell",
+			"type": "process",
 			"group": "build",
-			"command": "west",
+			"command": "${config:west}",
 			"args": [
 				"build",
 				"-p",
@@ -45,29 +44,14 @@
 			],
 			"dependsOn": [
 				// "Clean Build",
-				"Set Zephyr Source"
 			 ],
 			"problemMatcher": [ "$gcc" ]
 		},
 		{
-			"label": "Set Zephyr Source",
-			"type": "shell",
-			"group": "build",
-			"command": "source",
-			"args": [
-				"${workspaceFolder:zephyrproject}/zephyr/zephyr-env.sh"
-			],
-			"dependsOn": [
-				"Set West Source Prefer",
-				"Set West Source",
-			],
-			"problemMatcher": []
-		},
-		{
 			"label": "Set West Source",
-			"type": "shell",
+			"type": "process",
 			"group": "build",
-			"command": "west",
+			"command": "${config:west}",
 			"args": [
 				"config",
 				"zephyr.base",
@@ -78,9 +62,9 @@
 		},
 		{
 			"label": "Set West Source Prefer",
-			"type": "shell",
+			"type": "process",
 			"group": "build",
-			"command": "west",
+			"command": "${config:west}",
 			"args": [
 				"config",
 				"zephyr.base-prefer",
