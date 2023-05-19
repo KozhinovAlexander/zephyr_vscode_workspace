@@ -66,11 +66,12 @@
 			"problemMatcher": []
 		},
 		{
-			"label": "Twister Device Test",
+			"label": "West Twister Device Test",
 			"type": "process",
 			"group": "build",
-			"command": "${config:twister.exec}",
+			"command": "${config:west}",
 			"args": [
+				"twister",
 				"--device-testing",
 				"--device-serial",
 				"/dev/ttyACM0",

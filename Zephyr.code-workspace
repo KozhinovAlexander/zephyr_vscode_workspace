@@ -13,7 +13,7 @@
 		},
 		{
 			"name": "ZephyrTests",
-			"path": "../zephyr/tests/kernel/sched"
+			"path": "../zephyr/tests/net/socket/websocket"
 		},
 		{
 			"name": "BootloaderUnderDev",
@@ -24,8 +24,7 @@
 	"settings": {
 		"west": "${env:HOME}/.python_default_venv/bin/west",
 		"twister":  {
-			"exec": "${workspaceFolder:zephyrproject}/zephyr/scripts/twister",
-			"on_host_test_arch": "qemu_x86",
+			"host_test_arch": "qemu_x86",
 		},
 		// Board support package settings:
 		"bsp": {
