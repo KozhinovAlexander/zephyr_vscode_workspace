@@ -12,6 +12,10 @@
 			"path": "../zephyr/samples/hello_world"
 		},
 		{
+			"name": "ZephyrTests",
+			"path": "../zephyr/tests/kernel/sched"
+		},
+		{
 			"name": "BootloaderUnderDev",
 			"path": "../bootloader/mcuboot/boot/zephyr"
 		}
@@ -19,6 +23,10 @@
 
 	"settings": {
 		"west": "${env:HOME}/.python_default_venv/bin/west",
+		"twister":  {
+			"exec": "${workspaceFolder:zephyrproject}/zephyr/scripts/twister",
+			"on_host_test_arch": "qemu_x86",
+		},
 		// Board support package settings:
 		"bsp": {
 			"cpu": "",  // must be used if multi core system (put _m4 or _m7 here for example)

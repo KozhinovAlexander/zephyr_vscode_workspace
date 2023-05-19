@@ -48,6 +48,55 @@
 			"problemMatcher": [ "$gcc" ]
 		},
 		{
+			"label": "West Twister Test",
+			"type": "process",
+			"group": "build",
+			"command": "${config:west}",
+			"args": [
+				"twister",
+				"-p",
+				"${config:twister.on_host_test_arch}",
+				"-T",
+				"${workspaceFolder:AppUnderDev}"
+			],
+			"dependsOn": [
+				// "West Build Bootloader",
+				// "West Build App",
+			 ],
+			"problemMatcher": []
+		},
+		{
+			"label": "Twister Device Test",
+			"type": "process",
+			"group": "build",
+			"command": "${config:twister.exec}",
+			"args": [
+				"--device-testing",
+				"--device-serial",
+				"/dev/ttyACM0",
+				"--device-serial-baud",
+				"115200",
+				"-p",
+				"${config:bsp.board}${config:bsp.cpu}",
+				"-T",
+				"${workspaceFolder:AppUnderDev}"
+			],
+			"dependsOn": [
+				// "West Build Bootloader",
+				// "West Build App",
+			 ],
+			"problemMatcher": []
+		},
+		{
+			"label": "Twister Clean Output",
+			"type": "shell",
+			"group": "build",
+			"command": "rm",
+			"args": ["-rf", "*twister-out*"],
+			"dependsOn": [],
+			"problemMatcher": []
+		},
+		{
 			"label": "Set West Source",
 			"type": "process",
 			"group": "build",
