@@ -1,5 +1,7 @@
 {
 	"version": "2.0.0",
+	// See available parameters under:
+	// 	https://github.com/Marus/cortex-debug/blob/master/src/common.ts#LL249C25-L249C25
 	"configurations": [
 	{
 		"name": "Flash & Debug AppUnderDev",
@@ -7,18 +9,15 @@
 		"executable": "${config:app.build_dir}/zephyr/zephyr.elf",
 		"request": "launch",
 		"type": "cortex-debug",
-		"openocdPath": "${which openocd}/openocd",
 		"servertype": "openocd",
 		"interface": "swd",
 		"device": "${config:bsp.soc}",
 		"targetId": "${config:bsp.board}",
 		"boardId": "1",
-		"flattenAnonymous": true,
-		"armToolchainPrefix": "arm-none-eabi",
-		"armToolchainPath": "${env:GNUARMEMB_TOOLCHAIN_PATH}/bin",
-		// "gdb_port": "6000",
+		"toolchainPrefix": "arm-zephyr-eabi",
+		"armToolchainPath": "${env:GNUARMEMB_TOOLCHAIN_PATH}",
 		"svdFile": "${config:bsp.svd}",
-		"showDevDebugOutput": "none",
+		"showDevDebugOutput": "raw",
 		"configFiles": [
 				"${config:bsp.debug_config}"
 			]
@@ -29,18 +28,15 @@
 		"executable": "${config:app_boot.build_dir}/zephyr/zephyr.elf",
 		"request": "launch",
 		"type": "cortex-debug",
-		"openocdPath": "${which openocd}/openocd",
 		"servertype": "openocd",
 		"interface": "swd",
 		"device": "${config:bsp.soc}",
 		"targetId": "${config:bsp.board}",
 		"boardId": "1",
-		"flattenAnonymous": true,
-		"armToolchainPrefix": "arm-none-eabi",
-		"armToolchainPath": "${env:GNUARMEMB_TOOLCHAIN_PATH}/bin",
-		// "gdb_port": "6000",
+		"toolchainPrefix": "arm-zephyr-eabi",
+		"armToolchainPath": "${env:GNUARMEMB_TOOLCHAIN_PATH}",
 		"svdFile": "${config:bsp.svd}",
-		"showDevDebugOutput": "none",
+		"showDevDebugOutput": "raw",
 		"configFiles": [
 				"${config:bsp.debug_config}"
 			]
