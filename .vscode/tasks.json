@@ -55,7 +55,7 @@
 			"args": [
 				"twister",
 				"-p",
-				"${config:twister.on_host_test_arch}",
+				"${config:twister.host_test_arch}",
 				"-T",
 				"${workspaceFolder:AppUnderDev}"
 			],
