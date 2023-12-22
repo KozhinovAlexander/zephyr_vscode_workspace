@@ -1,0 +1,24 @@
+{
+	"configurations": [
+	{
+		"name": "ZephyrRTOSConfiguration",
+		"includePath": [
+			"${workspaceFolder}/**",
+			"${env:GNUARMEMB_TOOLCHAIN_PATH}/arm-zephyr-eabi/**"
+		],
+		"defines": [],
+		"compilerPath": "${env:GNUARMEMB_TOOLCHAIN_PATH}/bin/arm-zephyr-eabi-gcc",
+		"cStandard": "c11",
+		"cppStandard": "c++17",
+		"IntelliSenseMode": "gcc-arm",
+		"browse": {
+			"path": [
+				"${GNUARMEMB_TOOLCHAIN_PATH}/arm-zephyr-eabi/include/*",
+				"${workspaceFolder}/*"
+			],
+			"limitSymbolsToIncludedHeaders": true,
+		  }
+	},
+	],
+	"version": 4
+}

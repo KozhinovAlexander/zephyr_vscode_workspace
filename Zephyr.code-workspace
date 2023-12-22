@@ -22,7 +22,7 @@
 	],
 
 	"settings": {
-		"west": "${env:HOME}/.python_default_venv/bin/west",
+		"west": "${env:HOME}/.local/bin/west",
 		"twister":  {
 			"host_test_arch": "qemu_x86",
 		},
@@ -55,14 +55,6 @@
 			"compile_args": ""
 		},
 
-		"C_Cpp.default.compilerPath": "${env:GNUARMEMB_TOOLCHAIN_PATH}/bin/arm-zephyr-eabi-gcc",
-		"C_Cpp.default.compileCommands": "${config:app.build_dir}/compile_commands.json",
-		"C_Cpp.default.includePath": [
-			"${workspaceFolder:zephyrproject}/zephyr",
-			"${env:GNUARMEMB_TOOLCHAIN_PATH}/arm-zephyr-eabi/include",
-			"${env:GNUARMEMB_TOOLCHAIN_PATH}/arm-zephyr-eabi/sys-include"
-		],
-		
 		"cmake.configureOnOpen": false,
 
 		"files.associations": {
@@ -70,7 +62,7 @@
 
 		// The number of spaces a tab is equal to. This setting is overridden
 		// based on the file contents when `editor.detectIndentation` is true.
-		"editor.tabSize": 8,
+		"editor.tabSize": 4,
 
 		// Insert spaces when pressing Tab. This setting is overriden
 		// based on the file contents when `editor.detectIndentation` is true.
