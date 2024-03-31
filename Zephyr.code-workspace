@@ -9,7 +9,7 @@
 		},
 		{
 			"name": "AppUnderDev",
-			"path": "../zephyr/samples/hello_world"
+			"path": "../zephyr/samples/net/sockets/can"
 		},
 		{
 			"name": "ZephyrTests",
@@ -43,7 +43,7 @@
 			"name": "${workspaceFolder:AppUnderDev}",
 			"build_dir": "${workspaceFolder:AppUnderDev}/build",
 			"zephyr_config": "",  // -DOVERLAY_CONFIG=<path_relative_to_sample> use ; for multiple files
-			"zephyr_dtc_overlay": "",  // "-DDTC_OVERLAY_FILE=boards/nucleo_f303re.overlay"  // -DDTC_OVERLAY_FILE=<path_relative_to_sample> use ; for multiple files
+			"zephyr_dtc_overlay": "-DDTC_OVERLAY_FILE=${workspaceFolder:AppUnderDev}/${config:bsp.board}.overlay",  // -DDTC_OVERLAY_FILE=<path_relative_to_sample> use ; for multiple files
 			"compile_args": ""
 		},
 
