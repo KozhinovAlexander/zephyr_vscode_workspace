@@ -2,3 +2,4 @@
 c_cpp_properties.json
 *.log
 *twister-out*
+.vscode-ctags

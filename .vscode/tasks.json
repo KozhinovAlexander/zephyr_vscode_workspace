@@ -17,7 +17,7 @@
 				"${config:app.name}",
 				"${config:app.zephyr_config}",
 				"${config:app.zephyr_dtc_overlay}",
-				"${config:app_boot.compile_args}"
+				"${config:app.compile_args}"
 			],
 			"dependsOn": [
 				// "Clean Build",

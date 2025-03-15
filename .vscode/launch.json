@@ -15,7 +15,7 @@
 		"targetId": "${config:bsp.board}",
 		"boardId": "1",
 		"toolchainPrefix": "arm-zephyr-eabi",
-		"armToolchainPath": "${env:GNUARMEMB_TOOLCHAIN_PATH}/bin",
+		"armToolchainPath": "${config:armToolchainPath}",
 		"svdFile": "${config:bsp.svd}",
 		"showDevDebugOutput": "raw",
 		"configFiles": [
@@ -34,7 +34,7 @@
 		"targetId": "${config:bsp.board}",
 		"boardId": "1",
 		"toolchainPrefix": "arm-zephyr-eabi",
-		"armToolchainPath": "${env:GNUARMEMB_TOOLCHAIN_PATH}/bin",
+		"armToolchainPath": "${config:armToolchainPath}",
 		"svdFile": "${config:bsp.svd}",
 		"showDevDebugOutput": "raw",
 		"configFiles": [
