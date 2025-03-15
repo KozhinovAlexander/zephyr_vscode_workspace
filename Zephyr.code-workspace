@@ -49,13 +49,13 @@
 		},
 		// Board support package settings:
 		"bsp": {
-			"cpu": "/m7",  // must be used if multi core system (put /m4 or /m7 here for example)
-			"soc": "stm32h745xx",
-			"board": "nucleo_h745zi_q",
+			"cpu": "",  // "/m7",  // must be used if multi core system (put /m4 or /m7 here for example)
+			"soc": "stm32wb09",  // "stm32h745xx",
+			"board": "nucleo_wb09ke",  // "nucleo_h745zi_q",
 			"board_manufacturer": "st",
 			"board_root": "${workspaceFolder:zephyrproject}/zephyr",
 			"board_path": "${config:bsp.board_root}/boards/${config:bsp.board_manufacturer}/${config:bsp.board}",
-			"svd": "${workspaceFolder}/stm32_svd/STM32H745_CM7.svd",
+			"svd": "${workspaceFolder}/stm32_svd/STM32WB09.svd",
 			"debug_config": "${config:bsp.board_path}/support/openocd.cfg"
 		},
 
