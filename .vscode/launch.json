@@ -1,10 +1,10 @@
 {
 	"version": "2.0.0",
 	// See available parameters under:
-	// 	https://github.com/Marus/cortex-debug/blob/master/src/common.ts#LL249C25-L249C25
+	// 	https://github.com/Marus/cortex-debug/blob/master/src/common.ts#L254-L351
 	"configurations": [
 	{
-		"name": "Flash & Debug AppUnderDev",
+		"name": "OpenOCD Flash & Debug AppUnderDev",
 		"cwd": "${workspaceFolder:AppUnderDev}",
 		"executable": "${config:app.build_dir}/zephyr/zephyr.elf",
 		"request": "launch",
@@ -13,7 +13,6 @@
 		"interface": "swd",
 		"device": "${config:bsp.soc}",
 		"targetId": "${config:bsp.board}",
-		"boardId": "1",
 		"toolchainPrefix": "arm-zephyr-eabi",
 		"armToolchainPath": "${config:armToolchainPath}",
 		"svdFile": "${config:bsp.svd}",
@@ -23,7 +22,7 @@
 			]
 	},
 	{
-		"name": "Flash & Debug BootloaderUnderDev",
+		"name": "OpenOCD Flash & Debug BootloaderUnderDev",
 		"cwd": "${workspaceFolder:BootloaderUnderDev}",
 		"executable": "${config:app_boot.build_dir}/zephyr/zephyr.elf",
 		"request": "launch",
@@ -32,7 +31,6 @@
 		"interface": "swd",
 		"device": "${config:bsp.soc}",
 		"targetId": "${config:bsp.board}",
-		"boardId": "1",
 		"toolchainPrefix": "arm-zephyr-eabi",
 		"armToolchainPath": "${config:armToolchainPath}",
 		"svdFile": "${config:bsp.svd}",
@@ -40,6 +38,32 @@
 		"configFiles": [
 				"${config:bsp.debug_config}"
 			]
-	}
+	},
+	{
+		"name": "STLink Flash & Debug AppUnderDev",
+		"cwd": "${workspaceFolder:AppUnderDev}",
+		"executable": "${config:app.build_dir}/zephyr/zephyr.elf",
+		"request": "launch",
+		"type": "cortex-debug",
+		"servertype": "stlink",
+		"device": "${config:bsp.soc}",
+		"targetId": "${config:bsp.board}",
+		"toolchainPrefix": "arm-zephyr-eabi",
+		"armToolchainPath": "${config:armToolchainPath}",
+		"svdFile": "${config:bsp.svd}",
+	},
+	{
+		"name": "STLink Flash & Debug BootloaderUnderDev",
+		"cwd": "${workspaceFolder:AppUnderDev}",
+		"executable": "${config:app.build_dir}/zephyr/zephyr.elf",
+		"request": "launch",
+		"type": "cortex-debug",
+		"servertype": "stlink",
+		"device": "${config:bsp.soc}",
+		"targetId": "${config:bsp.board}",
+		"toolchainPrefix": "arm-zephyr-eabi",
+		"armToolchainPath": "${config:armToolchainPath}",
+		"svdFile": "${config:bsp.svd}",
+	},
 	]
 }
