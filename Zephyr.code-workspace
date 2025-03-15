@@ -8,8 +8,28 @@
 			"path": "../"
 		},
 		{
+			"name": "linux",
+			"path": "../../linux"
+		},
+		{
+			"name": "cannectivity",
+			"path": "../../cannectivity"
+		},
+		{
 			"name": "AppUnderDev",
-			"path": "../zephyr/samples/hello_world"
+			// "path": "../zephyr/samples/subsys/usb/console"
+			// "path": "../zephyr/samples/hello_world"
+			// "path": "../zephyr/samples/basic/blinky"
+			// "path": "../zephyr/samples/drivers/comparator"
+			// "path": "../zephyr/tests/drivers/comparator/gpio_loopback"
+			// "path": "../zephyr/tests/drivers/rtc/rtc_api",
+			"path": "../zephyr/tests/drivers/gpio/gpio_basic_api",
+			// "path": "../zephyr/samples/net/gptp"
+			// "path": "../zephyr/samples/sensor/die_temp_polling"
+			// "path": "../zephyr/samples/net/sockets/echo_server"
+			// "path": "../zephyr/samples/drivers/uart/echo_bot"
+			// "path": "../../cannectivity/app"  // "../custom/cannectivity/app" // "../../cannectivity/app"
+			// "path": "../zephyr/samples/boards/st/b_g431b_esc1"
 		},
 		{
 			"name": "ZephyrTests",
@@ -22,19 +42,20 @@
 	],
 
 	"settings": {
-		"west": "${env:HOME}/.local/bin/west",
+		"west": "${env:HOME}/Documents/dev/zephyrproject/.zephyr_venv/bin/west",
+		"armToolchainPath": "${env:HOME}/zephyr-sdk-0.17.0/arm-zephyr-eabi/bin",
 		"twister":  {
 			"host_test_arch": "qemu_x86",
 		},
 		// Board support package settings:
 		"bsp": {
-			"cpu": "",  // must be used if multi core system (put /m4 or /m7 here for example)
-			"soc": "stm32f446xx",
-			"board": "nucleo_f446ze",
+			"cpu": "/m7",  // must be used if multi core system (put /m4 or /m7 here for example)
+			"soc": "stm32h745xx",
+			"board": "nucleo_h745zi_q",
 			"board_manufacturer": "st",
 			"board_root": "${workspaceFolder:zephyrproject}/zephyr",
 			"board_path": "${config:bsp.board_root}/boards/${config:bsp.board_manufacturer}/${config:bsp.board}",
-			"svd": "${workspaceFolder}/stm32_svd/STM32F446x.svd",
+			"svd": "${workspaceFolder}/stm32_svd/STM32H745_CM7.svd",
 			"debug_config": "${config:bsp.board_path}/support/openocd.cfg"
 		},
 
@@ -42,23 +63,52 @@
 		"app": {
 			"name": "${workspaceFolder:AppUnderDev}",
 			"build_dir": "${workspaceFolder:AppUnderDev}/build",
-			"zephyr_config": "",  // -DOVERLAY_CONFIG=<path_relative_to_sample> use ; for multiple files
-			"zephyr_dtc_overlay": "",  // "-DDTC_OVERLAY_FILE=boards/nucleo_f303re.overlay"  // -DDTC_OVERLAY_FILE=<path_relative_to_sample> use ; for multiple files
-			"compile_args": ""
+			// -DOVERLAY_CONFIG=<path_relative_to_sample> use ; for multiple files
+			"zephyr_config": "", // "-DOVERLAY_CONFIG=${workspaceFolder:AppUnderDev}/boards/${config:bsp.board}.conf",
+			// -DDTC_OVERLAY_FILE=<path_relative_to_sample> use ; for multiple files
+			"zephyr_dtc_overlay": "", // "-DDTC_OVERLAY_FILE=${workspaceFolder:AppUnderDev}/boards/${config:bsp.board}.overlay",  // "-DDTC_OVERLAY_FILE=${workspaceFolder:AppUnderDev}/boards/${config:bsp.board}.overlay",
+			"compile_args": ""  // "-S rtt-console"
 		},
 
 		// Bootloader app settings:
 		"app_boot": {
 			"name": "${workspaceFolder:BootloaderUnderDev}",
 			"build_dir": "${workspaceFolder:BootloaderUnderDev}/build",
-			"zephyr_config": "",  // -DOVERLAY_CONFIG=<path_relative_to_sample> use ; for multiple files
-			"zephyr_dtc_overlay": "",  // "-DDTC_OVERLAY_FILE=boards/nucleo_f303re.overlay"  // -DDTC_OVERLAY_FILE=<path_relative_to_sample> use ; for multiple files
+			// -DOVERLAY_CONFIG=<path_relative_to_sample> use ; for multiple files
+			"zephyr_config": "",
+			// -DDTC_OVERLAY_FILE=<path_relative_to_sample> use ; for multiple files
+			"zephyr_dtc_overlay": "",  // "-DDTC_OVERLAY_FILE=boards/nucleo_f303re.overlay"
 			"compile_args": ""
 		},
 
 		"cmake.configureOnOpen": false,
 
 		"files.associations": {
+			"*.rst": "restructuredtext",
+			"regex": "c",
+			"array": "c",
+			"string": "c",
+			"string_view": "c",
+			"ratio": "c",
+			"printk.h": "c",
+			"sample_usbd.h": "c",
+			"compare": "cpp",
+			"cstdint": "cpp",
+			"gs_usb.h": "c",
+			"gs_usb_define_descriptor_dummy.h": "c",
+			"kernel.h": "c",
+			"comparator.h": "c",
+			"stm32_ll_system.h": "c",
+			"stm32_ll_comp.h": "c",
+			"nrfx_comp.h": "c",
+			"stm32_clock_control.h": "c",
+			"gpio_intc_stm32.h": "c",
+			"util.h": "c",
+			"stm32-gpio.h": "c",
+			"stm32_ll_gpio.h": "c",
+			"stm32f1xx_ll_gpio.h": "c",
+			"random": "cpp",
+			"gpio_utils.h": "c"
 		},
 
 		// The number of spaces a tab is equal to. This setting is overridden
@@ -73,7 +123,7 @@
 		// will be detected based on the file contents. Set to false to keep
 		// the values you've explicitly set, above.
 		"editor.detectIndentation": false,
-		"editor.rulers": [80],
+		"editor.rulers": [80, 100, 120],
 
 		"editor.cursorBlinking": "smooth",
 
@@ -136,7 +186,10 @@
 			"**/log/**": true,
 			"**/.west/**": true
 		},
-		"editor.renderControlCharacters": false,
-		"cortex-debug.variableUseNaturalFormat": false
+		"editor.renderControlCharacters": true,
+		"cortex-debug.variableUseNaturalFormat": false,
+		"esbonio.server.enabled": false,
+		"files.trimTrailingWhitespace": true,
+		"terminal.integrated.scrollback": 50000
 	}
 }
