@@ -4,32 +4,16 @@
 			"path": "."
 		},
 		{
+			"name": "dev",
+			"path": "../../"
+		},
+		{
 			"name": "zephyrproject",
-			"path": "../"
-		},
-		{
-			"name": "linux",
-			"path": "../../linux"
-		},
-		{
-			"name": "cannectivity",
-			"path": "../../cannectivity"
+			"path": ".."
 		},
 		{
 			"name": "AppUnderDev",
-			// "path": "../zephyr/samples/subsys/usb/console"
-			// "path": "../zephyr/samples/hello_world"
-			// "path": "../zephyr/samples/basic/blinky"
-			// "path": "../zephyr/samples/drivers/comparator"
-			// "path": "../zephyr/tests/drivers/comparator/gpio_loopback"
-			// "path": "../zephyr/tests/drivers/rtc/rtc_api",
-			"path": "../zephyr/tests/drivers/gpio/gpio_basic_api",
-			// "path": "../zephyr/samples/net/gptp"
-			// "path": "../zephyr/samples/sensor/die_temp_polling"
-			// "path": "../zephyr/samples/net/sockets/echo_server"
-			// "path": "../zephyr/samples/drivers/uart/echo_bot"
-			// "path": "../../cannectivity/app"  // "../custom/cannectivity/app" // "../../cannectivity/app"
-			// "path": "../zephyr/samples/boards/st/b_g431b_esc1"
+			"path": "../zephyr/tests/drivers/gpio/gpio_basic_api"
 		},
 		{
 			"name": "ZephyrTests",
@@ -108,7 +92,9 @@
 			"stm32_ll_gpio.h": "c",
 			"stm32f1xx_ll_gpio.h": "c",
 			"random": "cpp",
-			"gpio_utils.h": "c"
+			"gpio_utils.h": "c",
+			"*.conf": "bitbake",
+			"*.inc": "bitbake"
 		},
 
 		// The number of spaces a tab is equal to. This setting is overridden
@@ -190,6 +176,16 @@
 		"cortex-debug.variableUseNaturalFormat": false,
 		"esbonio.server.enabled": false,
 		"files.trimTrailingWhitespace": true,
-		"terminal.integrated.scrollback": 50000
+		"terminal.integrated.scrollback": 50000,
+		"python.autoComplete.extraPaths": [
+			"${workspaceFolder}/sources/poky/bitbake/lib",
+			"${workspaceFolder}/sources/poky/meta/lib"
+		],
+		"python.analysis.extraPaths": [
+			"${workspaceFolder}/sources/poky/bitbake/lib",
+			"${workspaceFolder}/sources/poky/meta/lib"
+		],
+		"terminal.integrated.defaultProfile.linux": "Zephyr IDE Terminal",
+		"C_Cpp.default.compileCommands": "${workspaceFolder}/.vscode/compile_commands.json"
 	}
 }
